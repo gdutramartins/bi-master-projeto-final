@@ -11,3 +11,4 @@ Projeto Final da Pós Graduação BI-Master sob a Orientação do professor Leon
 * [The Annotated Transformer (passo-a-passo em Pytorch)](http://nlp.seas.harvard.edu/annotated-transformer/)
 * [LANGUAGE MODELING WITH NN.TRANSFORMER AND TORCHTEXT](https://pytorch.org/tutorials/beginner/transformer_tutorial.html)
 * [Text processing tools for TensorFlow (construção de Vocabulário BertTokenizer) ](https://www.tensorflow.org/text)
+* [How to use Transformer Networks to build a Forecasting model](https://medium.com/towards-data-science/how-to-use-transformer-networks-to-build-a-forecasting-model-297f9270e630)
