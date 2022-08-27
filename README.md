@@ -138,6 +138,7 @@ Melhor acurácia conseguida com o modelo BERT foi de 85,67%.
 <br/><br/>
 ### 4. Conclusões
 
+A performance do modelo foi satisfatória, contudo sempre tentamos melhorar o resultado.
 Não realizamos testes com embeddings próprios, mas dada a quantidade de textos poderíamos construir um embedding para comparar os resultados, contudo não acreditamos que mesmo com um embedding próprio as redes LSTM’s consigam superar o BERT, no entanto isso não foi testado no trabalho.  
 A construção de um BERT próprio, dada a enorme quantidade de textos (o trabalho utilizou somente 2020 e 2021), seria um teste interessante porque acredito na possibilidade de melhorar consideravelmente o resultado. O BNDES por exemplo não é um token reconhecido pelo Tokenizador, sendo gerados dois tokens [B, #NDES].
 
