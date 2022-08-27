@@ -51,14 +51,16 @@ A equipe de comunicação do BNDES encaminhou planilhas com artigos da imprensa,
 Os textos das mídias sociais estavam disponíveis em planilhas, sem necessidade de consultar links, no entanto continham colunas desnecessárias para nossa análise, linhas vazias ou repetidas (geralmente tweets repostados).  
 O carregamento extraiu 45.440 textos utilizando dados de 2020 (imprensa e mídias), 2021 (imprensa e mídias) e maio de 2022 (somente mídias sociais).  
 
-<br/>
+<br/>  
+
 #### 2.2 Análise dos Textos
 Os artigos de imprensa são bem grandes, a maior parte continha aproximadamente 1.000 tokens, contudo existiam artigos com mais de 14.000 tokens. Já as publicações nas redes sociais possuem, normalmente, tamanho bem menor, variando entre 100 e 350 tokens.  
 No gráfico abaixo limitamos o número máximo de tokens para facilitar a visualização.  
 
 ![Quantidade de tokens nos textos](/tamanho_textos.png "Quantidade de tokens nos textos")
 
-<br/>  
+<br/>   
+
 **Balanceamento**  
 A base não estava completamente balanceada, mas a quantidade de textos adquiridos permitiu um treinamento adequado, no gráfico abaixo pode-se visualizar as proporções entre os sentimentos.    
 Importante ressaltar que artigos da imprensa são na sua maioria neutra, contudo elas compõem aproximadamente 15% do conjunto de textos.  
@@ -66,6 +68,7 @@ Importante ressaltar que artigos da imprensa são na sua maioria neutra, contudo
 ![Balanceamento dos Sentimentos](/balanceamento_sentimentos.png "Balanceamento dos Sentimentos")
 
 <br/>  
+
 **Separação das Bases**  
 As bases de treino, validação e teste foram separadas conforme o gráfico abaixo.  
 
@@ -79,6 +82,7 @@ Foram utilizados dois tipos de modelos:
 * BERT - Bidirectional Encoder Representations from Transformer  
 
 <br/>  
+
 **Modelo 1 - LSTM**  
 
 Para auxiliar na contextualização dos textos a rede neural utilizou uma camada de Embedding pré-treinado disponibilizados em português pelo NILC - Núcleo Interinstitucional de Linguística Computacional. Diferentes dimensões e tipos de embedding foram testados e apresentaremos posteriormente um comparativo entre os resultados.  
@@ -112,6 +116,7 @@ Observações sobre os modelos testados:
 * O resultado obtido pela rede construído é satisfatório, mas o tempo de treinamento é muito longo, em média 16 horas.  
 
 <br/>  
+
 **Modelo 2 - BERT**  
 
 Utilizamos o modelo BERT da Neuralmind (BERTimbau) e treinamos a última camada para que o modelo aprendesse a classificação de textos com sentimento positivo, negativo e neutro.
