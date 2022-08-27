@@ -1,5 +1,5 @@
 
-![Análise de Sentimentos em Textos sobre o BNDES](/capa.png "Análise de Sentimentos em Textos sobre o BNDES")
+![Análise de Sentimentos em Textos sobre o BNDES](/imagens/capa.png "Análise de Sentimentos em Textos sobre o BNDES")
 <!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
 # Análise de Sentimentos em Textos sobre o BNDES
 
@@ -57,7 +57,7 @@ O carregamento extraiu 45.440 textos utilizando dados de 2020 (imprensa e mídia
 Os artigos de imprensa são bem grandes, a maior parte continha aproximadamente 1.000 tokens, contudo existiam artigos com mais de 14.000 tokens. Já as publicações nas redes sociais possuem, normalmente, tamanho bem menor, variando entre 100 e 350 tokens.  
 No gráfico abaixo limitamos o número máximo de tokens para facilitar a visualização.  
 
-![Quantidade de tokens nos textos](/tamanho_textos.png "Quantidade de tokens nos textos")
+![Quantidade de tokens nos textos](/imagens/tamanho_textos.png "Quantidade de tokens nos textos")
 
 <br/>   
 
@@ -65,14 +65,14 @@ No gráfico abaixo limitamos o número máximo de tokens para facilitar a visual
 A base não estava completamente balanceada, mas a quantidade de textos adquiridos permitiu um treinamento adequado, no gráfico abaixo pode-se visualizar as proporções entre os sentimentos.    
 Importante ressaltar que artigos da imprensa são na sua maioria neutra, contudo elas compõem aproximadamente 15% do conjunto de textos.  
 
-![Balanceamento dos Sentimentos](/balanceamento_sentimentos.png "Balanceamento dos Sentimentos")
+![Balanceamento dos Sentimentos](/imagens/balanceamento_sentimentos.png "Balanceamento dos Sentimentos")
 
 <br/>  
 
 **Separação das Bases**  
 As bases de treino, validação e teste foram separadas conforme o gráfico abaixo.  
 
-![Separação base para treinamento, validação e teste](/separacao_bases.png "Separação base para treinamento, validação e teste")
+![Separação base para treinamento, validação e teste](/imagens/separacao_bases.png "Separação base para treinamento, validação e teste")
 
 <br/><br/>
 #### 2.3 Modelos
@@ -99,7 +99,7 @@ A tabela abaixo contém o comparativo dos modelos testados, importante ressaltar
 * A métrica utilizada para comparação foi a acurácia, sendo que a nota final do modelo deveria ser baseada na base de teste, que não foi vista ainda pelo modelo.  
 * As LSTM’s de dois níveis, bem como as LSTM’s bidirecionais, em nossos testes, não conseguiram superar o modelo com uma camada de LSTM.  
 
-![Comparativo dos modelos LSTM's](/comparativo_lstm.png "Comparativo dos modelos LSTM's")
+![Comparativo dos modelos LSTM's](/imagens/comparativo_lstm.png "Comparativo dos modelos LSTM's")
 
 Nosso melhor resultado com os textos de imprensa foi 83,24%, já com imprensa e mídias sociais conseguimos 83,67%, resultado bastante satisfatório. Segue a descrição do modelo com o melhor resultado:  
 1.	Input de textos com tamanho de 1.000 posições  
@@ -123,7 +123,7 @@ Utilizamos o modelo BERT da Neuralmind (BERTimbau) e treinamos a última camada 
 Nosso primeiro teste não tratou os textos e conseguimos o resultado de aproximadamente 86% de acurácia. Posteriormente achamos que o resultado melhoraria com outros tratamentos de texto, mas foi inferior.  
 Abaixo mostramos a tabela comparando alguns testes que realizamos com o BERT.
 
-![Comparativo dos modelos BERT](/comparativo_bert.png "Comparativo dos modelos BERT")
+![Comparativo dos modelos BERT](/imagens/comparativo_bert.png "Comparativo dos modelos BERT")
 
 Para os modelos BERT também medimos o F1-score.
 Os modelos BERT eram treinados em 2 horas, 8 vezes menor que o tempo de treinamento das redes LSTM.
