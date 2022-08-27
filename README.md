@@ -58,14 +58,14 @@ No gráfico abaixo limitamos o número máximo de tokens para facilitar a visual
 
 ![Quantidade de tokens nos textos](/tamanho_textos.png "Quantidade de tokens nos textos")
 
-<br/>
+<br/>  
 **Balanceamento**  
 A base não estava completamente balanceada, mas a quantidade de textos adquiridos permitiu um treinamento adequado, no gráfico abaixo pode-se visualizar as proporções entre os sentimentos.    
 Importante ressaltar que artigos da imprensa são na sua maioria neutra, contudo elas compõem aproximadamente 15% do conjunto de textos.  
 
 ![Balanceamento dos Sentimentos](/balanceamento_sentimentos.png "Balanceamento dos Sentimentos")
 
-<br/>
+<br/>  
 **Separação das Bases**  
 As bases de treino, validação e teste foram separadas conforme o gráfico abaixo.  
 
@@ -78,7 +78,7 @@ Foram utilizados dois tipos de modelos:
 * LSTM – Long Short Term Memory  
 * BERT - Bidirectional Encoder Representations from Transformer  
 
-<br/>
+<br/>  
 **Modelo 1 - LSTM**  
 
 Para auxiliar na contextualização dos textos a rede neural utilizou uma camada de Embedding pré-treinado disponibilizados em português pelo NILC - Núcleo Interinstitucional de Linguística Computacional. Diferentes dimensões e tipos de embedding foram testados e apresentaremos posteriormente um comparativo entre os resultados.  
@@ -111,7 +111,7 @@ Observações sobre os modelos testados:
 * Embeddings com dimensão superior a 300 pioraram o resultado do modelo, com 1.000 posições tivemos o resultado de 78,8% e com 600 81,52%  
 * O resultado obtido pela rede construído é satisfatório, mas o tempo de treinamento é muito longo, em média 16 horas.  
 
-<br/>
+<br/>  
 **Modelo 2 - BERT**  
 
 Utilizamos o modelo BERT da Neuralmind (BERTimbau) e treinamos a última camada para que o modelo aprendesse a classificação de textos com sentimento positivo, negativo e neutro.
