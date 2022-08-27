@@ -1,5 +1,7 @@
+
+![alt text for screen readers](/capa.png "Análise de Sentimentos em Textos sobre o BNDES")
 <!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
-# Musis Is Data: Music Information Retrieval
+# Análise de Sentimentos em Textos sobre o BNDES
 
 #### Aluno: [Gustavo Dutra Martins](https://github.com/gdutramartins/)
 #### Orientadora: [Leonardo Mendoza](https://github.com/leofome8).

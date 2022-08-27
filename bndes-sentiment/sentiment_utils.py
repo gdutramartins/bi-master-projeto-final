@@ -41,12 +41,13 @@ def _trata_erros_escrita_comuns(tweet):
     return tweet
 
 def pre_processar_bert(text: str, trata_nome_bndes: bool = False) -> str:
-    text = _remove_links(text)
-    text = _remove_users(text)
-    text = _remove_hashtags(text)
-    text = _remove_av(text)
-    if trata_nome_bndes:
-        text = _trata_bndes(text)
+    
+    #text = _remove_links(text)
+    #text = _remove_users(text)
+    #text = _remove_hashtags(text)
+    #text = _remove_av(text)
+    #if trata_nome_bndes:
+    #    text = _trata_bndes(text)
     text = _trata_erros_escrita_comuns(text)
 
     return text.strip()
