@@ -94,21 +94,43 @@ A tabela abaixo contém o comparativo dos modelos testados, importante ressaltar
 
 ![Comparativo dos modelos LSTM's](/comparativo_lstm.png "Comparativo dos modelos LSTM's")
 
+Nosso melhor resultado com os textos de imprensa foi 83,24%, já com imprensa e mídias sociais conseguimos 83,67%, resultado bastante satisfatório. Segue a descrição do modelo com o melhor resultado:
+1.	Input de textos com tamanho de 1.000 posições
+2.	Embedding Word2Vec (300)
+3.	LSTM (300, RecurrentDroput=0,3)
+4.	Dropout (0,3)
+5.	GlobalMaxPoolling1D
+6.	Dense(300, ReLu)
+7.	Dense (3) 
 
+Observações sobre os modelos testados:
+* No teste que diminuiu o tamanho máximo tivemos perdas significativas de performance, alcançando somente 71,46 %.
+* Embeddings com dimensão superior a 300 pioraram o resultado do modelo, com 1.000 posições tivemos o resultado de 78,8% e com 600 81,52%
+* O resultado obtido pela rede construído é satisfatório, mas o tempo de treinamento é muito longo, em média 16 horas.
+
+**Modelo 2 - BERT**
+
+Utilizamos o modelo BERT da Neuralmind (BERTimbau) e treinamos a última camada para que o modelo aprendesse a classificação de textos com sentimento positivo, negativo e neutro.
+Nosso primeiro teste não tratou os textos e conseguimos o resultado de aproximadamente 86% de acurácia. Posteriormente achamos que o resultado melhoraria com outros tratamentos de texto, mas foi inferior.
+Abaixo mostramos a tabela comparando alguns testes que realizamos com o BERT.
+
+![Comparativo dos modelos BERT](/comparativo_bert.png "Comparativo dos modelos BERT")
+
+Para os modelos BERT também medimos o F1-score.
+Os modelos BERT eram treinados em 2 horas, 8 vezes menor que o tempo de treinamento das redes LSTM.
 
 
 
 ### 3. Resultados
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
-
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
+Melhor acurácia conseguida com o modelo LSGTM foi de 83,67%.
+Melhor acurácia conseguida com o modelo BERT foi de 85,67%.
 
 ### 4. Conclusões
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
+Não realizamos testes com embeddings próprios, mas dada a quantidade de textos poderíamos construir um embedding para comparar os resultados, contudo não acreditamos que mesmo com um Embedding próprio as redes LSTM’s consigam superar o BERT, contudo isso não foi testado no trabalho.
+A construção de um BERT próprio, dada a enorme quantidade de textos (o trabalho utilizou somente 2020 e 2021), seria um teste interessante porque acredito que isso poderia melhorar consideravelmente o resultado. O BNDES por exemplo não é um token reconhecido pelo Tokenizador, sendo gerado dois tokens [B, #NDES].
 
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
 
 ---
 
