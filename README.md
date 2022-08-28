@@ -138,9 +138,13 @@ Melhor acurácia conseguida com o modelo BERT foi de 85,67%.
 <br/><br/>
 ### 4. Conclusões
 
-A performance do modelo foi satisfatória, contudo sempre tentamos melhorar o resultado.
-Não realizamos testes com embeddings próprios, mas dada a quantidade de textos poderíamos construir um embedding para comparar os resultados, contudo não acreditamos que mesmo com um embedding próprio as redes LSTM’s consigam superar o BERT, no entanto isso não foi testado no trabalho.  
-A construção de um BERT próprio, dada a enorme quantidade de textos (o trabalho utilizou somente 2020 e 2021), seria um teste interessante porque acredito na possibilidade de melhorar consideravelmente o resultado. O BNDES por exemplo não é um token reconhecido pelo Tokenizador, sendo gerados dois tokens [B, #NDES].
+A jornada até os melhores modelos é singular, no papel de estudantes imaginamos diversas formas de melhorar o resultado e quase sempre geramos um resultado pior, muitas vezes em um pequeno detalhe ou erro encontramos um caminho que leva ao nosso melhor resultado, é uma experiência ímpar.  
+Finalizo o curso ao qual dediquei muitas horas de estudo com a sensação de dever cumprido, aprendi muito e espero com o tempo aprender um pouco mais, levando o conhecimento adquirido para outras frentes de trabalho.  
+Os responsáveis na área de comunicação do BNDES ficaram satisfeitos com a performance do modelo, embora as perguntas finais fossem sobre o que poderia ser melhorado para alcançar um resultado ainda melhor. Alguns caminhos foram que imaginamos nesse sentido:  
+* Não foram realizados  testes com embeddings próprios, mas existe uma quantidade considerável de textos que poderia ser utilizada para treinar um embedding próprio. Nesse caminho é provável que o resultado das redes LSTM's melhorasse, contudo seria difícil superar o BERT, no entanto esse caminho não foi testado no trabalho.  
+* A construção de um BERT próprio seria um teste interessante porque acredito na possibilidade de melhorar consideravelmente o resultado. O BNDES por exemplo não é um token reconhecido pelo Tokenizador do BERTimbau, sendo gerados quatro tokens [B, ##N, ##DE, ##S].
+
+Por fim meus sinceros agradecimentos ao orientador Leonardo Mendoza que pacientemente me ajudou nos vários projetos e caminhos diferentes no curso até finalizarmos com a análise de sentimentos em textos publicados sobre o BNDES.  
 
 
 ---

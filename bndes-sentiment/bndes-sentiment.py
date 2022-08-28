@@ -47,7 +47,7 @@ def main():
         if objetivo.lower() == OBJETIVO_TREINO: 
             bert_model.treina_modelo_bert()
         else:
-            print('Previsão BERT náo implementada')
+            bert_model.prever_sentimento(file_textos)
     
 
 if __name__ == '__main__':

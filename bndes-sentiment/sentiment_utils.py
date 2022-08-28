@@ -48,9 +48,9 @@ def pre_processar_bert(text: str, trata_nome_bndes: bool = False) -> str:
     #text = _remove_av(text)
     #if trata_nome_bndes:
     #    text = _trata_bndes(text)
-    text = _trata_erros_escrita_comuns(text)
+    #text = _trata_erros_escrita_comuns(text)
 
-    return text.strip()
+    return text.lower().strip()
 
 def pre_processar_lstm(text: str, trata_nome_bndes: bool = False) -> str:
     re_remove_brackets = re.compile(r'\{.*\}')

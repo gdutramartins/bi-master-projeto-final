@@ -7,50 +7,30 @@ import os
 
 from typing import List, Dict, Union, Tuple, NoReturn
 
-import pandas as pd
-from pandas.core.series import Series
-import json
-
 import numpy as np
-import string
+import pandas as pd
 
-import nltk    
-from nltk import tokenize    
-nltk.download('punkt')   
-
-from gensim.models import KeyedVectors
-
-import matplotlib.pyplot as plt
-import matplotlib
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, accuracy_score
 
 import keras
-from keras.models import load_model, model_from_json, Sequential
-from keras.layers import Dense,Conv1D,MaxPooling1D, GlobalMaxPooling1D, GlobalAveragePooling1D
-from keras.layers import Flatten, LSTM, Bidirectional, Dropout, concatenate
-from keras.layers.embeddings import Embedding
-from keras.preprocessing import sequence
-from keras import Input, Model
-from keras.callbacks import ModelCheckpoint
-from keras.layers.merge import average
 
 import transformers
 from transformers import AutoTokenizer  # Or BertTokenizer
-from transformers import AutoModelForPreTraining  # Or BertForPreTraining for loading pretraining heads
-from transformers import AutoModel  # or BertModel, for BERT without pretraining heads
-from transformers import BertTokenizerFast, BatchEncoding, PreTrainedTokenizerFast, TrainingArguments, Trainer, AutoModelForSequenceClassification
+from transformers import TrainingArguments, Trainer, AutoModelForSequenceClassification
 from datasets import load_metric
 
 import torch
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from torch import nn, optim
+import torch.nn.functional as F
+
 import gc
 
 import sentiment_utils as su
 import constants
+
 
 
 RANDOM_SEED = 42
@@ -309,3 +289,34 @@ def treina_modelo_bert():
     print('F1 Score (Macro) - ', score)
     score = accuracy_score(y_true=y_true, y_pred=y_pred)
     print('Acurácia', score)
+
+
+
+def prever_sentimento(file_textos: str):
+    textos: List[str] = []
+    model = AutoModelForSequenceClassification.from_pretrained(constants.MODEL_BERT_PATH, num_labels=3)
+    tokenizer = AutoTokenizer.from_pretrained(constants.BASE_BERT_MODEL, do_lower_case=False)
+    model.to('cuda')
+
+    with open(file_textos, 'r', encoding='utf-8') as f:
+        for line in f:
+            textos.append(su.pre_processar_bert(line))
+
+
+    encoding = tokenizer.batch_encode_plus(
+      textos,
+      add_special_tokens=True,
+      max_length=constants.BERT_MAX_LEN,
+      return_token_type_ids=False,
+      pad_to_max_length=True,
+      return_attention_mask=True,
+      return_tensors='pt'
+    )
+
+    model_predict = model(encoding['input_ids'].to('cuda'), encoding['attention_mask'].to('cuda'))
+    model_predict_converted = F.softmax(model_predict.logits, dim=1).cpu().detach().numpy()
+    predict = np.argmax(model_predict_converted, axis=1)
+    for index, t in enumerate(textos):
+        print(f' Sentimento: {constants.LABEL_NAMES[predict[index]]} \n {t}')
+        print(' ===============================================')
+    
