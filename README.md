@@ -144,7 +144,7 @@ Os responsáveis na área de comunicação do BNDES ficaram satisfeitos com a pe
 * Não foram realizados  testes com embeddings próprios, mas existe um corpus com tamanho suficiente para treinar um embedding próprio. Nesse caminho é provável que o resultado das redes LSTM's melhorasse, contudo seria difícil superar o BERT.  
 * A construção de um BERT próprio seria um teste interessante porque acredito na possibilidade de melhorar consideravelmente o resultado. O BNDES por exemplo não é um token reconhecido pelo Tokenizador do BERTimbau, sendo gerado quatro tokens no caso de maiúscula [B, ##N, ##DE, ##S] e dois no caso de minúscula [b, ##ndes].  O BERTimbau também é treinado com textos sensíveis a caixa alta e baixa, já que sua principal função foi reconhecimento de entidades (NER), mas para a classificação de textos é provável que um modelo BERT treinado em caixa baixa tenha melhor acurácia.  
 
-Para instruções sobre como rodar os programas utilizados para treinamento e teste [clique aqui](\instrucoes.md).  
+Para instruções sobre como rodar os programas utilizados para treinamento e teste [clique aqui](/instrucoes.md).  
 
 Por fim meus sinceros agradecimentos ao orientador Leonardo Mendoza que pacientemente me ajudou nos vários projetos e caminhos diferentes no curso até finalizarmos com a análise de sentimentos em textos publicados sobre o BNDES.  
 
