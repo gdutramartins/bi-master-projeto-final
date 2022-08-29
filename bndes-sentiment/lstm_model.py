@@ -119,6 +119,10 @@ def _load_stopwords():
     return stopwords
 
 def _tokenizar(lista_texto: List[str]) -> List[List[str]]:
+    '''
+        Cria uma lista de tokens para cada item da lista de texto, colocando em caixa baixa e pré processando o texto
+    '''
+
     lista_tokens_clear: List[List[str]] = []
     stop_words = _load_stopwords()
 
@@ -132,6 +136,9 @@ def _tokenizar(lista_texto: List[str]) -> List[List[str]]:
 
 
 def _read_embedding(file_name, dim_size, debug: bool = False) -> Tuple[Dict[str,int], List[np.ndarray]]:
+    '''
+        Carrega o Embedding com a dimensão informada
+    '''
     print('Carregando Embedding...')
     with open(file_name,'r', encoding="utf8") as f:
         vocab:Dict[str, int] = {} 
@@ -205,6 +212,9 @@ def _trata_tokens_ausentes(lista_textos_tokenizados: List[List[str]],
 
 def _converte_tokens_to_id(lista_sentencas_tokenizadas: List[List[str]], 
                           vocab: Dict[str,int], max_sentence_length: int) -> np.ndarray:
+    '''
+        Converte a lista de tokens para o respectivo identificador no vocabulário do Embedding.
+    '''
     conversao = np.zeros((len(lista_sentencas_tokenizadas), max_sentence_length), dtype='int32')
     
     for count_sentenca,sentenca in enumerate(lista_sentencas_tokenizadas):
@@ -216,6 +226,11 @@ def _converte_tokens_to_id(lista_sentencas_tokenizadas: List[List[str]],
 
 
 def _carrega_textos_para_treinamento(vocab: Dict[str,int]) -> Tuple[np.ndarray, List[int]]:
+    '''
+        Monta as listas de treinamento, juntando textos de imprensa com os textos de mídias sociais.
+        A lista retornada já contem os tokens com os identificadores do Embedding.
+        O Padding tabém é realizado, completando os textos menores e truncando os maiores.
+    '''
 
     lista_texto_imprensa: List[str]
     lista_label_imprensa: List[str] 
@@ -304,6 +319,8 @@ def treina_modelo_lstm():
     model_load = tf.keras.models.load_model(filepath)
     evaluate = model_load.evaluate(X_test,y_test)
     print('Test set\n  Loss: {:0.4f}\n  Accuracy: {:0.4f}'.format(evaluate[0],evaluate[1]))
+
+    
 
 def prever_sentimento(file_textos: str):
     textos: List[str] = []

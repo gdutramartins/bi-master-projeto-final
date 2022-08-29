@@ -1,3 +1,15 @@
+'''
+    Instruções
+    1) Em nosso projeto utilizamos o compartilhamento do Google Drive que continha os textos clasificados  e após o treinamento salvamos o modelo também no Google Drive.
+    2) A execução em linha de comando pode ser realizada da seguinte forma:
+        - Treinamento BERT -> python bndes-sentiment.py bert treino
+        - Treinamento LSTM -> python bndes-sentiment.py lstm treino
+        - Predição com o modelo BERT (textos em um arquivo) -> python bndes-sentiment.py bert predicao <nome-arquivo.txt>
+        - Predição com o modelo LSTM (textos em um arquivo) -> python bndes-sentiment.py lstm predicao <nome-arquivo.txt>
+    
+'''
+
+
 import sys
 import numpy
 
@@ -12,7 +24,10 @@ OBJETVIVO_PREDICAO = 'predicao'
 
 
 
-def valida_parametros(tipo_rede: str, objetivo: str):
+def valida_parametros(tipo_rede: str, objetivo: str) -> None:
+'''
+    Valida os parametros recebidos pela linha de comando
+'''
     if (tipo_rede.lower() not in [TIPO_REDE_LSTM,TIPO_REDE_BERT]):
         mensagem = f'Tipo de rede inválida {tipo_rede}'
         raise Exception(mensagem)

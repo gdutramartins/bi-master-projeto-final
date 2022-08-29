@@ -41,7 +41,10 @@ def _trata_erros_escrita_comuns(tweet):
     return tweet
 
 def pre_processar_bert(text: str, trata_nome_bndes: bool = False) -> str:
-    
+    '''
+        Pré processamento dos textos para entrada no modelo BERT. No final dos treinamentos identifcamos como melhor modelo aquele que não fez qualquer tipo de manipulação no texto.
+    '''
+
     #text = _remove_links(text)
     #text = _remove_users(text)
     #text = _remove_hashtags(text)
@@ -53,6 +56,10 @@ def pre_processar_bert(text: str, trata_nome_bndes: bool = False) -> str:
     return text.lower().strip()
 
 def pre_processar_lstm(text: str, trata_nome_bndes: bool = False) -> str:
+    '''
+        Pré processamento dos textos para entrada no modelo LSTM. No final dos treinamentos identifcamos como melhor modelo aquele que não fez qualquer tipo de manipulação no texto.
+    '''
+
     re_remove_brackets = re.compile(r'\{.*\}')
     re_remove_html = re.compile(r'<(\/|\\)?.+?>', re.UNICODE)
     re_transform_numbers = re.compile(r'\d', re.UNICODE)
