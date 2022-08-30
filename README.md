@@ -38,8 +38,8 @@ The proposal of the work is to use the texts by the clipping tools and their val
 O BNDES como instituição pública responsável por investimentos em setores relacionados ao desenvolvimento econômico e social do país tem alta exposição na imprensa e nas mídias sociais. A polarização dos sentimentos nas publicações é considerável:  
 * As reportagens sobre a atuação do banco são em sua maioria neutras porque relatam os objetivos de programas e linhas de crédito criadas.  
 * Os responsáveis pelo investimento e beneficiados diretos ou indiretos pelas linhas de financiamento normalmente tem opiniões positivas.   
-* Grupos que não foram beneficiados e a oposição geralmente tem opiniões negativas ou entendem que o investimento deveria priorizar outro tipo de atividade.  
-* Existem os grupos que criticam a existência do banco, a remuneração dos funcionários e condenam qualquer tipo de ação realizada, gerando mensagens negativas que buscam denegrir a imagem do BNDES.   
+* Oposição ao governo geralmente tem opiniões negativas ou entendem que o investimento deveria priorizar outro tipo de atividade.  
+* Existem os grupos que criticam a existência do banco, a remuneração dos funcionários e condenam qualquer tipo de ação realizada, gerando mensagens negativas que buscam prejudicar a imagem do BNDES.   
 Priorizada pela alta hierarquia do BNDES, a melhora da imagem externa é um indicador estratégico, sendo a análise de sentimentos sobre artigos e posts publicados uma das variáveis utilizadas para medição.  
 Atualmente o BNDES possui contrato com uma empresa que realiza o clipping e análise manual de sentimentos. Nosso projeto utilizou os textos extraídos e os rótulos atribuídos (positivo, neutro, negativo) para treinar os diversos modelos.  
 <br/><br/>
