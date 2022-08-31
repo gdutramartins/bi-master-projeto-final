@@ -132,8 +132,8 @@ Os modelos BERT eram treinados em 2 horas, 8 vezes menor que o tempo de treiname
 <br/><br/>
 ### 3. Resultados
 
-Melhor acurácia conseguida com o modelo LSTM foi de 83,67%.  
-Melhor acurácia conseguida com o modelo BERT foi de 85,67%.
+Melhor acurácia conseguida com o modelo LSTM foi de 83,67%. Tempo de treinamento de aproximadamente 18 horas.   
+Melhor acurácia conseguida com o modelo BERT foi de 85,67%. Tempo de treinamento de aproximadamente 4 horas.  
 
 <br/><br/>
 ### 4. Conclusões
